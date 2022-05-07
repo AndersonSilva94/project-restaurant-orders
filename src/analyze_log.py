@@ -14,6 +14,9 @@ Requisito 1: Passos a se seguir:
 Lógica a se pensar:
 1 - Fazer a leitura do arquivo e converter os dados em uma lista
 2 - Separar cada pergunta numa função
+3 - Com as informações em mãos, fazer um print dos dados num arquivo txt
+4 - Fazer um try, except para caso a extensão seja inválida, ou o
+arquivo inexistente, retorne uma mensagem de erro
 """
 import csv
 
@@ -95,7 +98,7 @@ def verify_days_by_joao(data):
     1 - Utilizar os mesmos princípios da lógica da pergunta anterior
     2 - A diferença é que aqui, vamos armazenar os dias totais e os que
     joão foi à lanchonete.
-    3 - Depois ver a diferença entre esses valores 
+    3 - Depois ver a diferença entre esses valores
     """
     days = set()
     joao_days = set()
@@ -108,10 +111,23 @@ def verify_days_by_joao(data):
 
 
 def analyze_log(path_to_file):
-    with open(path_to_file) as csv_file:
-        file_data = csv.reader(csv_file)
-        list_result = [data_element for data_element in file_data]
-        print(verify_days_by_joao(list_result))
+    try:
+        with open(path_to_file) as csv_file:
+            file_data = csv.reader(csv_file)
+            list_result = [data_element for data_element in file_data]
+            string_result = (
+                f"{get_maria_food(list_result)}\n"
+                f"{count_arnaldo_order(list_result)}\n"
+                f"{verify_orders_by_joao(list_result)}\n"
+                f"{verify_days_by_joao(list_result)}"
+            )
+        with open('data/mkt_campaign.txt', 'w') as new_file:
+            print(string_result, file=new_file)
+    except FileNotFoundError:
+        if not path_to_file.endswith('csv'):
+            raise FileNotFoundError(f"Extensão inválida: {path_to_file}")
+        else:
+            raise FileNotFoundError(f"Arquivo inexistente: {path_to_file}")
 
 
-analyze_log('data/orders_1.csv')
+# analyze_log('data/orders_1.csv')
