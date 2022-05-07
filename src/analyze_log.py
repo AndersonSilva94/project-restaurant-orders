@@ -89,11 +89,29 @@ def verify_orders_by_joao(data):
     return orders_not_made
 
 
+def verify_days_by_joao(data):
+    """
+    Para responder a segunda pergunta de joão:
+    1 - Utilizar os mesmos princípios da lógica da pergunta anterior
+    2 - A diferença é que aqui, vamos armazenar os dias totais e os que
+    joão foi à lanchonete.
+    3 - Depois ver a diferença entre esses valores 
+    """
+    days = set()
+    joao_days = set()
+    for info in data:
+        days.add(info[2])
+        if info[0] == 'joao':
+            joao_days.add(info[2])
+    days_did_not_go = days.symmetric_difference(joao_days)
+    return days_did_not_go
+
+
 def analyze_log(path_to_file):
     with open(path_to_file) as csv_file:
         file_data = csv.reader(csv_file)
         list_result = [data_element for data_element in file_data]
-        print(verify_orders_by_joao(list_result))
+        print(verify_days_by_joao(list_result))
 
 
 analyze_log('data/orders_1.csv')
