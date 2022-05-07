@@ -64,11 +64,36 @@ def count_arnaldo_order(data):
     return hamburguers
 
 
+def verify_orders_by_joao(data):
+    """
+    Para responder a primeira questão de joão:
+    1 - Criar variáveis que vão armazenar conjuntos de alimentos em geral e
+    pedidos de joão
+    2 - Esses valores tem que ser únicos, por isso usar o set()
+    3 - Percorrer a lista passada como parâmetro, adicionando a comida
+    à variável de alimentos em geral
+    4 - Ao mesmo tempo, verificar se quem fez o pedido foi joão. Caso sim
+    adicionar a comida aos pedidos de joão
+    5 - Verificar quais são as comidas não pedidas, fazendo uma subtração do
+    total pelos pedidos de joão usando symmetric_difference()
+    6 - Método symmetric_difference encontrado no link:
+    https://www.w3schools.com/python/python_sets_join.asp
+    """
+    orders_foods = set()
+    joao_orders = set()
+    for info in data:
+        orders_foods.add(info[1])
+        if info[0] == 'joao':
+            joao_orders.add(info[1])
+    orders_not_made = orders_foods.symmetric_difference(joao_orders)
+    return orders_not_made
+
+
 def analyze_log(path_to_file):
     with open(path_to_file) as csv_file:
         file_data = csv.reader(csv_file)
         list_result = [data_element for data_element in file_data]
-        print(count_arnaldo_order(list_result))
+        print(verify_orders_by_joao(list_result))
 
 
 analyze_log('data/orders_1.csv')
