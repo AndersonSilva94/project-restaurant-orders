@@ -48,11 +48,27 @@ def get_maria_food(data):
     return most_order
 
 
+def count_arnaldo_order(data):
+    """
+    Para responder a questão de arnaldo:
+    1 - Criar uma variável que vai somar toda vez que a comida de arnaldo
+    for hamburguer
+    2 - Percorrer a lista recebida como parâmetro e verificar se a posição
+    0 é arnaldo e a 1 é hambúrguer
+    3 - Caso seja, somar + 1 à variável
+    """
+    hamburguers = 0
+    for info in data:
+        if info[0] == 'arnaldo' and info[1] == 'hamburguer':
+            hamburguers += 1
+    return hamburguers
+
+
 def analyze_log(path_to_file):
     with open(path_to_file) as csv_file:
         file_data = csv.reader(csv_file)
         list_result = [data_element for data_element in file_data]
-        print(get_maria_food(list_result))
+        print(count_arnaldo_order(list_result))
 
 
 analyze_log('data/orders_1.csv')
