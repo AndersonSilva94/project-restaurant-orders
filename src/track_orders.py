@@ -39,7 +39,8 @@ class TrackOrders:
         """
         Utilizei a mesma estrutura usada para veriricar o prato mais pedido
         por maria no requisito anterior
-        A diferença aqui que o parametro
+        A diferença aqui que o parametro customer vai ser utilizado para
+        salvar os pedidos feitos pelo cliente
         """
         order_by_customer = []
         dict_total_foods = {}
@@ -55,7 +56,20 @@ class TrackOrders:
         return most_order
 
     def get_never_ordered_per_customer(self, customer):
-        pass
+        """
+        Utilizei a mesma estrutura usada para veriricar quais pratos joão
+        nunca tinha pedido
+        A diferença aqui que o parametro customer vai ser utilizado para
+        salvar os pedidos feitos pelo cliente
+        """
+        orders_foods = set()
+        customer_orders = set()
+        for info in self.orders_list:
+            orders_foods.add(info[1])
+            if info[0] == customer:
+                customer_orders.add(info[1])
+        orders_not_made = orders_foods.symmetric_difference(customer_orders)
+        return orders_not_made
 
     def get_days_never_visited_per_customer(self, customer):
         pass
