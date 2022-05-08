@@ -88,7 +88,27 @@ class TrackOrders:
         return days_did_not_go
 
     def get_busiest_day(self):
-        pass
+        """
+        Utilizei a mesma estrutura usada para trazer o prato mais pedido por
+        cliente
+        1 - Criei variáveis que vão armazenar os valores de dias e quantidades
+        de pedidos por cada um
+        2 - Depois percorri a lista, buscando somente os dias
+        3 - Com esses valores, criei um dict que tem como chave o dia, e valor
+        a quantidade
+        4 - Fiz um max() pra saber qual chave tem a maior quantidade
+        """
+        days = []
+        dict_count_days = {}
+        for info in self.orders_list:
+            days.append(info[2])
+        for day in days:
+            if day in dict_count_days:
+                dict_count_days[day] += 1
+            else:
+                dict_count_days[day] = 1
+        most_visited = max(dict_count_days, key=lambda f: dict_count_days[f])
+        return most_visited
 
     def get_least_busy_day(self):
         pass
