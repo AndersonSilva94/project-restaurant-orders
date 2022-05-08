@@ -111,4 +111,18 @@ class TrackOrders:
         return most_visited
 
     def get_least_busy_day(self):
-        pass
+        """
+        Utilizei a mesma estrutura para verificar o dia mais movimentado
+        A diferença aqui é que retorno o menor valor usando min()
+        """
+        days = []
+        dict_count_days = {}
+        for info in self.orders_list:
+            days.append(info[2])
+        for day in days:
+            if day in dict_count_days:
+                dict_count_days[day] += 1
+            else:
+                dict_count_days[day] = 1
+        most_visited = min(dict_count_days, key=lambda f: dict_count_days[f])
+        return most_visited
