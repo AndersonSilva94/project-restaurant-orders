@@ -1,40 +1,41 @@
-### Termos e acordos
+![CAPA LINKEDIN_PERFIL PESSOAL03](https://user-images.githubusercontent.com/52717632/123512102-9546b200-d653-11eb-8b6c-f6c1dd19143e.png)
+# Projeto Restaurant Orders :cook:
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do
-Manual da Pessoa Estudante da Trybe.
+## Objetivos a serem alcançados no decorrer da construção do projeto
 
-# Boas vindas ao repositório do projeto Restaurant Orders!
+A lanchonete Pão na Chapa, atualmente, possui um sistema de faturamento dos pedidos dos clientes, que salva o nome da pessoa, o pedido realizado, e dia do atendimento (dia da semana). O projeto consiste em ajudar a lanchonete a melhorar esse sistema para que ele possibilite extração de relatórios e, num segundo momento, a controlar seu estoque.
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+O projeto está estruturado em duas etapas obrigatórias, e a tarefa bônus, também em duas etapas, totalizando 4 requisitos. Foque nas etapas obrigatórias e com o mesmo cuidado que teria com um cliente real: código limpo, com boa manutenção e legibilidade.
 
 ---
 
-# Sumário
+## Instruções para clonar o projeto
 
-- [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de Entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
-  - [Linter](#linter)
-- [Requisitos do projeto](#requisitos-do-projeto)
+1. Clone o repositório
+  ```bash
+  $ git clone https://github.com/AndersonSilva94/project-restaurant-orders.git
+  ```
 
-    `Requisitos obrigatórios:`
-    - [1 - Campanha de publicidade, implemente um método chamado analyze_log no módulo src/analyze_log.py que gere informações de uma lanchonete.](#1---campanha-de-publicidade-implemente-um-método-chamado-analyze_log-no-módulo-srcanalyze_logpy-que-gere-informações-de-uma-lanchonete)
-    - [2 - Análises contínuas, implemente a classe TrackOrders que gere informações contínuas de uma lanchonete.](#2---análises-contínuas-implemente-a-classe-trackorders-que-gere-informações-contínuas-de-uma-lanchonete)
-    
-    `Requisitos bônus:`
-    - [3 - Controle de estoque](#3---controle-de-estoque)
-    - [4 - Estoque pode acabar](#4---estoque-pode-acabar)
-- [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
-- [Revisando um pull request](#revisando-um-pull-request)
-- [Avisos Finais](#avisos-finais)
+2. Entre na pasta do repositório que você acabou de clonar:
+  ```bash
+  $ cd project-restaurant-orders
+  ```
+
+3. Crie o ambiente virtual para o projeto
+  ```bash
+  $ python3 -m venv .venv && source .venv/bin/activate
+  ```
+
+4. Instale as dependências
+
+```bash
+$ python3 -m pip install -r dev-requirements.txt
+```
+
+- Caso tenha algum problema de instalação das dependências, tente instalar a biblioteca `wheel` e depois execute o comando anterior novamente
+```bash
+$ python3 -m pip install wheel
+```
 
 ---
 
@@ -43,111 +44,6 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - Trabalhar com Hash map e Dict
 
 - Trabalhar com Set
-
----
-
-## Entregáveis
-
-Para entregar o seu projeto você deverá criar um _Pull Request_ neste repositório. Este _Pull Request_ deverá conter os arquivos do diretório `src` devidamente preenchidos de acordo com as instruções, que conterão seu código `Python` e seus testes, respectivamente.
-
-### ⚠️ É importante que seus arquivos tenham exatamente os nomes definidos dentro do diretório src! ⚠️
-
-Você pode adicionar outros arquivos se julgar necessário. Qualquer dúvida, procure a monitoria.
-
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
-
----
-
-## O que deverá ser desenvolvido
-
-A lanchonete Pão na Chapa, atualmente, possui um sistema de faturamento dos pedidos dos clientes, que salva o nome da pessoa, o pedido realizado, e dia do atendimento (dia da semana). O projeto consiste em ajudar a lanchonete a melhorar esse sistema para que ele possibilite extração de relatórios e, num segundo momento, a controlar seu estoque.
-
-O projeto está estruturado em duas etapas obrigatórias, e a tarefa bônus, também em duas etapas, totalizando 4 requisitos. Foque nas etapas obrigatórias e com o mesmo cuidado que teria com um cliente real: código limpo, com boa manutenção e legibilidade.
-
----
-
-## Data de Entrega
-
-  - Serão `1` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `12/05/2022 14:00`.
-
----
-
-## Instruções para entregar seu projeto:
-
-### ANTES DE COMEÇAR A DESENVOLVER:
-
-### Recomendações
-- **⚠ Para o desenvolvimento deste projeto recomendamos o uso da versão 3.8 ou 3.9 da linguagem Python. Para saber a versão que está configurada em seu dispositivo execute o comando `python3 -V` em seu terminal. Para mais detalhes relacionados a configuração do ambiente Python consulte o nosso [guia de configuração de ambiente](https://app.betrybe.com/course/real-life-engineer/python).**
-
-1. Clone o repositório
-
-- `git clone git@github.com:tryber/sd-013-c-restaurant-orders.git`.
-- Entre na pasta do repositório que você acabou de clonar:
-  - `sd-013-c-restaurant-orders`
-
-2. Crie o ambiente virtual para o projeto
-
-- `python3 -m venv .venv && source .venv/bin/activate`
-
-3. Instale as dependências
-
-- `python3 -m pip install -r dev-requirements.txt`
-
-- Caso tenha algum problema de instalação das dependências, tente instalar a biblioteca `wheel` e depois execute o comando anterior novamente
-- `python3 -m pip install wheel`
-
-4. Crie uma branch a partir da branch `master`
-
-- Verifique que você está na branch `master`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `master`
-  - Exemplo: `git checkout master`
-- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
-  - Você deve criar uma branch no seguinte formato: `nome-github-nome-do-projeto`
-  - Exemplo: `git checkout -b exemplo-project-name`
-
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-
-- Verifique que as mudanças ainda não estão no _stage_
-  - Exemplo: `git status` (deve aparecer listada a pasta _exemplo_ em vermelho)
-- Adicione o novo arquivo ao _stage_ do Git
-  - Exemplo:
-    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-    - `git status` (deve aparecer listado o arquivo _exemplo/README.md_ em verde)
-- Faça o `commit` inicial
-  - Exemplo:
-    - `git commit -m 'iniciando o projeto project-name'` (fazendo o primeiro commit)
-    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-
-- Usando o exemplo anterior: `git push -u origin exemplo-project-name`
-
-7. Crie um novo `Pull Request` _(PR)_
-
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-013-c-restaurant-orders/pulls)
-- Clique no botão verde _"New pull request"_
-- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-- Clique no botão verde _"Create pull request"_
-- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-- **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a página de _Pull Requests_ do repositório e confira que o seu _Pull Request_ está criado
-
----
-
-### Durante o desenvolvimento
-
-- Faça `commits` das alterações que você fizer no código regularmente
-
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
-
-- Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
 
 ---
 
@@ -500,34 +396,4 @@ Altere o arquivo `main.py`:
 - 4.3 - Será validado se, ao executar o método `get_available_dishes`, o método não retorna os pratos cujos ingredientes não sejam suficientes para seu preparo.
 
 ---
-
-## Depois de terminar o desenvolvimento
-
-Para **"entregar"** seu projeto, siga os passos a seguir:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-013-c`
-
-Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
-⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo **Lint** estão resolvidas! ⚠
-
----
-
-### Revisando um pull request
-
-À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
-
-Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
-
-# Avisos Finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
-
----
+:keyboard: com :purple_heart: por [Anderson Silva (Andy)](https://www.linkedin.com/in/andssilva/) 😊
