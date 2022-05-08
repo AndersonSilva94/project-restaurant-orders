@@ -19,19 +19,21 @@ Requisito 2: Passos a se seguir:
 Lógica a se pensar:
 1 - Fazer um constructor de pedidos
 2 - Verificar a quantidade de pedidos no método len()
+3 - Para adicionar um novo pedido, é preciso fazer um append na lista de
+pedidos, com o conjunto de cliente, pedido e dia (nessa ordem)
 """
 
 
 class TrackOrders:
-    
+
     def __init__(self):
         self.orders_list = []
-    
+
     def __len__(self):
         return len(self.orders_list)
 
     def add_new_order(self, customer, order, day):
-        pass
+        return self.orders_list.append({customer, order, day})
 
     def get_most_ordered_dish_per_customer(self, customer):
         pass
