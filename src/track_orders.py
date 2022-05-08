@@ -72,7 +72,20 @@ class TrackOrders:
         return orders_not_made
 
     def get_days_never_visited_per_customer(self, customer):
-        pass
+        """
+        Utilizei a mesma estrutura usada para veriricar que dias joão
+        nunca tinha ido ao restaurante
+        A diferença aqui que o parametro customer vai ser utilizado para
+        salvar os dias que o cliente nunca foi ao restaurante
+        """
+        days = set()
+        customer_days = set()
+        for info in self.orders_list:
+            days.add(info[2])
+            if info[0] == customer:
+                customer_days.add(info[2])
+        days_did_not_go = days.symmetric_difference(customer_days)
+        return days_did_not_go
 
     def get_busiest_day(self):
         pass
