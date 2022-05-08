@@ -33,10 +33,26 @@ class TrackOrders:
         return len(self.orders_list)
 
     def add_new_order(self, customer, order, day):
-        return self.orders_list.append({customer, order, day})
+        return self.orders_list.append([customer, order, day])
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        """
+        Utilizei a mesma estrutura usada para veriricar o prato mais pedido
+        por maria no requisito anterior
+        A diferença aqui que o parametro
+        """
+        order_by_customer = []
+        dict_total_foods = {}
+        for info in self.orders_list:
+            if info[0] == customer:
+                order_by_customer.append(info[1])
+        for food in order_by_customer:
+            if food in dict_total_foods:
+                dict_total_foods[food] += 1
+            else:
+                dict_total_foods[food] = 1
+        most_order = max(dict_total_foods, key=lambda f: dict_total_foods[f])
+        return most_order
 
     def get_never_ordered_per_customer(self, customer):
         pass
